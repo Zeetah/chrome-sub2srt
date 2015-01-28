@@ -1,0 +1,33 @@
+{
+  "name": "chrome-sub2srt",
+  "version": "0.10.0",
+  "description": "sub2srt Converter for Chrome",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha-phantomjs": "^3.5.3",
+    "phantomjs": "^1.9.15"
+  },
+  "scripts": {
+    "test": "phantomjs test/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zeetah/chrome-sub2srt.git"
+  },
+  "keywords": [
+    "sub2srt",
+    "subtitles",
+    "chrome",
+    "extension",
+    "convert"
+  ],
+  "author": "Toni Ahola",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zeetah/chrome-sub2srt/issues"
+  },
+  "homepage": "https://github.com/Zeetah/chrome-sub2srt"
+}
