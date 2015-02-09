@@ -11,7 +11,7 @@
     "phantomjs": "^1.9.15"
   },
   "scripts": {
-    "test": "phantomjs test/run.js"
+    "test": "mocha-phantomjs test.html"
   },
   "repository": {
     "type": "git",
