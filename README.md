@@ -11,7 +11,7 @@ You can drag & drop files to application or use the choose button. After choosin
 {1}{1}23.976
 {131}{263}This is the first subtitle line.
 {272}{326}Second line.
-{330}{449}Third line.|Splitted.
+{1476}{1560}Third line.|Splitted.
 ```
 
 #####Converts to .srt file as shown below.
@@ -29,6 +29,7 @@ This is the first subtitle line.
 00:00:11,345 --> 00:00:13,597
 Second line.
 4
-00:00:13,764 --> 00:00:18,727
-Third line.|Splitted.
+00:01:01,562 --> 00:01:05,065
+Third line.
+Splitted.
 ```
