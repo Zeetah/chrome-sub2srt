@@ -13,8 +13,9 @@
   function framesToTime(frames) {
     var allSeconds = frames / settings.fps,
         milliseconds = (allSeconds - Math.floor(allSeconds)) * 1000,
-        seconds = Math.floor(allSeconds),
-        allMinutes = Math.floor(seconds / 60),
+        allSeconds = Math.floor(allSeconds),
+        seconds = allSeconds % 60,
+        allMinutes = Math.floor(allSeconds / 60),
         minutes = allMinutes % 60,
         hours = Math.floor(allMinutes / 60);
 
@@ -49,7 +50,7 @@
             var matchedMicroDvd = line.match(REGEX_MICRO_DVD)
                 startTime = framesToTime(matchedMicroDvd[1]),
                 endTime = framesToTime(matchedMicroDvd[2]),
-                text = matchedMicroDvd[3];
+                text = matchedMicroDvd[3].split('|').join('\n');
 
             return [
               index + 1,
