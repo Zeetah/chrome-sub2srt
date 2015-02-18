@@ -1,6 +1,13 @@
 describe('app page', function() {
   beforeEach(function() {
-    window.chrome = {};
+    window.chrome = {
+      storage: {
+        local: {
+          get: function(name, callback) { return callback({settings: {fps: 23.973}}); },
+          set: function() {}
+        }
+      }
+    };
 
     window.Blob = function(arr, obj) {};
 
@@ -18,6 +25,8 @@ describe('app page', function() {
         this.onwriteend();
       }
     };
+
+    new App();
   });
 
   it('displays error when file not selected', function(done) {
@@ -33,7 +42,7 @@ describe('app page', function() {
     done();
   });
 
-  it('displays error when sa not selected', function(done) {
+  it('shows success message when convert is successfull', function(done) {
     chrome.fileSystem = {
       chooseEntry: function(val, callback) {
         callback({
@@ -57,4 +66,27 @@ describe('app page', function() {
 
     setTimeout(checkIOState, 100);
   });
+
+  it('it saves fps when correct value given', function(done) {
+    expect($('#fps').val()).to.be.eql('23.973');
+
+    $('#fps').val('21.12345');
+    $('#save').click();
+
+    expect($('#fps').val()).to.be.eql('21.123');
+
+    done();
+  });
+
+  it('it saves default fps when incorrect value given', function(done) {
+    expect($('#fps').val()).to.be.eql('23.973');
+
+    $('#fps').val('ss21.12345');
+    $('#save').click();
+
+    expect($('#fps').val()).to.be.eql('23.976');
+
+    done();
+  });
+
 });

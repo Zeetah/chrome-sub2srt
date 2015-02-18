@@ -1,7 +1,5 @@
-(function() {
-  var chosenEntry = undefined,
-    currentData,
-    acceptsExtensions = [{
+var App = function() {
+  var acceptsExtensions = [{
       extensions: ['sub']
     }];
 
@@ -96,8 +94,20 @@
     });
   };
 
+  function updateSettings() {
+    var fps = +((+$('#fps').val()).toFixed(3));
+
+    if (!_.isFinite(fps) || _.isEqual(fps, 0)) {
+      fps = sub2srt.defaultSettings().fps;
+    }
+
+    sub2srt.settings.fps = fps;
+    chrome.storage.local.set({settings: {fps: fps}});
+    $('#fps').val(fps);
+  };
+
   // Enable dataTransfer support for jQuery events
-  jQuery.event.props.push('dataTransfer');
+  $.event.props.push('dataTransfer');
 
   $(function() {
     $('body')
@@ -105,6 +115,17 @@
       .bind( 'drop', handleDataDrop);
 
     $('#choose-file').bind('click', handleFileSelection);
+
+    $('#save').bind('click', updateSettings);
+
+    if(typeof chrome !== 'undefined') {
+      chrome.storage.local.get('settings', function(storageData) {
+        var fps = storageData.settings ? storageData.settings.fps : sub2srt.defaultSettings().fps;
+        $('#fps').val(fps);
+      });
+    }
   });
 
-}.call(this));
+};
+
+new App();

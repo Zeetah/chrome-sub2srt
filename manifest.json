@@ -1,8 +1,8 @@
 {
   "name": "sub2srt Converter for Chrome",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "manifest_version": 2,
-  "minimum_chrome_version": "31",
+  "minimum_chrome_version": "35",
   "app": {
     "background": {
       "scripts": [
@@ -31,5 +31,6 @@
     "16": "images/icon16.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
-  }
+  },
+  "offline_enabled": true
 }

@@ -15,6 +15,11 @@ button {
   cursor: pointer;
 }
 
+button#save {
+  padding: 0.5em;
+  font-size: 1em;
+}
+
 button:hover, button:active, button:focus {
   background-color: #0b4e91;
 }
@@ -46,4 +51,8 @@ section {
 section .button-container {
   display: table-cell;
   vertical-align: middle;
+}
+
+section #fps {
+  width: 4em;
 }

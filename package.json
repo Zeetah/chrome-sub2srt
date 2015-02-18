@@ -1,6 +1,6 @@
 {
   "name": "chrome-sub2srt",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "sub2srt Converter for Chrome",
   "directories": {
     "test": "test"
